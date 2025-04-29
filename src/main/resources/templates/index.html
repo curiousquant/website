@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head> 
+    <title>Sermons</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Georgia, Helvetica, sans-serif;
+        }
+        p {
+        margin-left: 20px;
+        margin-right: 20px;
+        white-space: pre-wrap;
+        }
+        li{
+            display: inline;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sermon</h1>
+        <p  th:text="${text}" />
+        <table>
+            <ul >
+                <li th:each="link:${links}">
+                        <a  
+                    th:href="@{/{count}(count=${link.count})}" 
+                    th:text="${link.count}"></a>
+                </li>
+            </ul> 
+        </table>
+        
+    </div>
+</body>
+
+</html>
